@@ -16,14 +16,16 @@ public class EnquiryServiceImpl implements EnquiryService {
 	@Autowired
 	EnquiryRepository enquiryRepository;
 
-	@Override
-	public ResponseEntity<Enquiry> updateEnquiry(Enquiry enquiry) 
-	{
-		return new ResponseEntity<Enquiry>(enquiry, HttpStatus.OK);
-	}
+
 
 	public Enquiry saveEnquiry(Enquiry enquiry) {
 	
+		return enquiryRepository.save(enquiry);
+	}
+
+	@Override
+	public Enquiry updateEnquiry(Enquiry enquiry) 
+	{
 		return enquiryRepository.save(enquiry);
 	}
 
