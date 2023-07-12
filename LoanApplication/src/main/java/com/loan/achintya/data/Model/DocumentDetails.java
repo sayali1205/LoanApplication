@@ -1,6 +1,8 @@
 package com.loan.achintya.data.Model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
@@ -13,12 +15,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class DocumentDetails {
 
-<<<<<<< HEAD
 
-=======
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int docId;
->>>>>>> branch 'main' of https://github.com/sayali1205/LoanApplication.git
+
 	private byte[] pancard;
 	private byte[] adharCard;
 	private byte[] form16;
