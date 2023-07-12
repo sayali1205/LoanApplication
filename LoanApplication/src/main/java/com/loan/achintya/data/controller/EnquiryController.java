@@ -19,7 +19,7 @@ public class EnquiryController {
 	@Autowired
 	EnquiryService enquiryService;
 	
-	@PutMapping("/updateUser/custId")
+	@PutMapping("/updateUser/{custId}")
 	public ResponseEntity<Enquiry> updateEnquiry(@RequestBody Enquiry enquiry,@PathVariable("custId") int custId)
 	{
 		return enquiryService.updateEnquiry(enquiry);
