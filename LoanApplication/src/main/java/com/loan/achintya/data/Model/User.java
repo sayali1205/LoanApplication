@@ -15,7 +15,5 @@ public class User {
 	@Id
 	private int uid;
 	private String userFName;
-private String userLName;
-
-
-}
+        private String userLName;
+                }
