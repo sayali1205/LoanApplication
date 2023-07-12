@@ -14,7 +14,11 @@ import lombok.NoArgsConstructor;
 public class BankDetails {
 
 	@Id
-	private int BankId;
+	private int bankDetailId;
+	private long accountNumber;
+	private String bankName;
+	private String bankIFSCCOde;
+	private double accountBalance;
 	
 
 }
