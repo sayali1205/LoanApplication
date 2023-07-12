@@ -20,5 +20,5 @@ public class Address {
 	private int adrId;
 	private String localAddress;
 	private String permanentAddress;
-	
+	private int pincode;
 }
