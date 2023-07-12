@@ -16,6 +16,7 @@ public class Enquiry {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int custId;
+	
 	private String custFirstName;
 	private String custLastName;
 	private long custContactNo;
