@@ -17,7 +17,7 @@ public class EnquiryServiceImpl implements EnquiryService {
 	EnquiryRepository enquiryRepository;
 
 
-
+	@Override
 	public Enquiry saveEnquiry(Enquiry enquiry) {
 	
 		return enquiryRepository.save(enquiry);
@@ -29,5 +29,6 @@ public class EnquiryServiceImpl implements EnquiryService {
 		return enquiryRepository.save(enquiry);
 	}
 
+	
 	
 }

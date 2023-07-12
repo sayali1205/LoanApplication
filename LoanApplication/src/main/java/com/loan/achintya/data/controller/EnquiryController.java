@@ -22,9 +22,9 @@ public class EnquiryController {
 
 
 	@PutMapping("/updateEnquiry/{custId}")
-
 	public ResponseEntity<Enquiry> updateEnquiry(@RequestBody Enquiry enquiry,@PathVariable("custId") int custId)
 	{
+		enquiry.setCustId(custId);
 		return new ResponseEntity<Enquiry>(enquiryService.updateEnquiry(enquiry),HttpStatus.OK);
 	}
 	@PostMapping("/saveEnquiry")
