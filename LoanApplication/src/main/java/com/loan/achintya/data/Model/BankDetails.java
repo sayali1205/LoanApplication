@@ -22,6 +22,6 @@ public class BankDetails {
 	private String bankName;
 	private String bankIFSCCode;
 	private double accountBalance;
-	
+	private String branch;
 
 }
