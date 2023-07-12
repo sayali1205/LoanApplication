@@ -25,7 +25,16 @@ public class Customer {
     private long custContactNo;
     private String custEmailId;
     private String custProfeshion;
+    
     @OneToOne(cascade = CascadeType.ALL)
     private DocumentDetails docData;
-              
+    
+    @OneToOne(cascade = CascadeType.ALL)
+      private Address address; 
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    private Transaction transaction;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    private BankDetails bankDetails;
 }
