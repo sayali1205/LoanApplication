@@ -1,6 +1,8 @@
 package com.loan.achintya.data.Model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
@@ -14,6 +16,7 @@ import lombok.NoArgsConstructor;
 public class DocumentDetails {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int docId;
 	private byte[] pancard;
 	private byte[] adharCard;
