@@ -18,20 +18,20 @@ public class EnquiryController {
 
 	@Autowired
 	EnquiryService enquiryService;
-	
-
 
 	@PutMapping("/updateEnquiry/{custId}")
 
-	public ResponseEntity<Enquiry> updateEnquiry(@PathVariable("custId") int custId,@RequestBody Enquiry enquiry)
+	public ResponseEntity<Enquiry> updateEnquiry(@PathVariable("custId") int custId, @RequestBody Enquiry enquiry)
+
 	{
 		enquiry.setCustId(custId);
-		Enquiry enquiry2=enquiryService.updateEnquiry(enquiry);
-		return new ResponseEntity<Enquiry>(enquiry2,HttpStatus.OK);
+
+		return new ResponseEntity<Enquiry>(enquiryService.updateEnquiry(enquiry), HttpStatus.OK);
+
 	}
+
 	@PostMapping("/saveEnquiry")
-	public ResponseEntity<Enquiry> createEnquiry(@RequestBody Enquiry enquiry) 
-	{
+	public ResponseEntity<Enquiry> createEnquiry(@RequestBody Enquiry enquiry) {
 		return new ResponseEntity<Enquiry>(enquiryService.saveEnquiry(enquiry), HttpStatus.OK);
 	}
 }
