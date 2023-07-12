@@ -11,5 +11,7 @@ import lombok.NoArgsConstructor;
 
 public class BankDetails {
 
+
 	private int BankId;
+
 }
