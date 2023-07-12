@@ -1,6 +1,7 @@
 package com.loan.achintya.data.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,7 +12,7 @@ import com.loan.achintya.data.model.User;
 import com.loan.achintya.data.service.UserService;
 
 import lombok.Data;
-
+@CrossOrigin(origins = "*")
 @RestController
 public class UserController {
 
