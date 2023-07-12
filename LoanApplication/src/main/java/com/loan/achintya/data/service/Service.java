@@ -1,4 +1,4 @@
-package com.loan.achintya.data.Service;
+package com.loan.achintya.data.service;
 
 public class Service {
 

@@ -1,4 +1,4 @@
-package com.loan.achintya.data.Controller;
+package com.loan.achintya.data.controller;
 
 public class Controller {
 

@@ -1,4 +1,4 @@
-package com.loan.achintya.data.Respository;
+package com.loan.achintya.data.repository;
 
 public class Repos {
 

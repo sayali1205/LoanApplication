@@ -1,4 +1,4 @@
-package com.loan.achintya.data.Model;
+package com.loan.achintya.data.model;
 
 import java.util.Date;
 

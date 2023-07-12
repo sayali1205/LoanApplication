@@ -1,4 +1,4 @@
-package com.loan.achintya.data.ServiceImpl;
+package com.loan.achintya.data.serviceImpl;
 
 public class Serviceimpl {
 
