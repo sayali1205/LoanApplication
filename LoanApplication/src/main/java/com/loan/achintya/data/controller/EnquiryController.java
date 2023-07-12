@@ -19,10 +19,13 @@ public class EnquiryController {
 	@Autowired
 	EnquiryService enquiryService;
 	
-	@PutMapping("/updateUser/{custId}")
+
+
+	@PutMapping("/updateEnquiry/{custId}")
+
 	public ResponseEntity<Enquiry> updateEnquiry(@RequestBody Enquiry enquiry,@PathVariable("custId") int custId)
 	{
-		return enquiryService.updateEnquiry(enquiry);
+		return new ResponseEntity<Enquiry>(enquiryService.updateEnquiry(enquiry),HttpStatus.OK);
 	}
 	@PostMapping("/saveEnquiry")
 	public ResponseEntity<Enquiry> createEnquiry(@RequestBody Enquiry enquiry) 
