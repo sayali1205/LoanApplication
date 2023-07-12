@@ -1,3 +1,4 @@
+
 package com.loan.achintya.data.Model;
 
 import javax.persistence.Entity;
