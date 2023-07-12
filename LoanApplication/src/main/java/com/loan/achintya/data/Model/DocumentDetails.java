@@ -13,19 +13,14 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Enquiry {
+public class DocumentDetails {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int custId;
+	private int docId;
+	private byte[] pancard;
+	private byte[] adharCard;
+	private byte[] form16;
+	private byte[] itr;
 	
-	private String custFirstName;
-	private String custLastName;
-	private long custContactNo;
-	private String custEmailId;
-	private String custPANno;
-	private String custLoanType;
-	private double custLoanAmmount;
-	private int custTennureYear;
-	
-
 }
