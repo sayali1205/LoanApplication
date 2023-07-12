@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,11 +21,17 @@ public class DocumentDetails {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int docId;
 
+	@Lob
 	private byte[] pancard;
+	@Lob
 	private byte[] adharCard;
+	@Lob
 	private byte[] photo;
+	@Lob
 	private byte[] signature;
+	@Lob
 	private byte[] form16;
+	@Lob
 	private byte[] itr;
 	
 }
