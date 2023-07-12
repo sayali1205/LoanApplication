@@ -1,8 +1,11 @@
 package com.loan.achintya.data.serviceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.loan.achintya.data.model.Enquiry;
 import com.loan.achintya.data.repository.EnquiryRepository;
 import com.loan.achintya.data.service.EnquiryService;
 
@@ -10,5 +13,11 @@ import com.loan.achintya.data.service.EnquiryService;
 public class EnquiryServiceImpl implements EnquiryService {
 	@Autowired
 	EnquiryRepository enquiryRepository;
+
+	@Override
+	public ResponseEntity<Enquiry> updateEnquiry(Enquiry enquiry) 
+	{
+		return new ResponseEntity<Enquiry>(enquiry, HttpStatus.OK);
+	}
 
 }
