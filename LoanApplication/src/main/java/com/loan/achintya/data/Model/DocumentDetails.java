@@ -22,6 +22,8 @@ public class DocumentDetails {
 
 	private byte[] pancard;
 	private byte[] adharCard;
+	private byte[] photo;
+	private byte[] signature;
 	private byte[] form16;
 	private byte[] itr;
 	
