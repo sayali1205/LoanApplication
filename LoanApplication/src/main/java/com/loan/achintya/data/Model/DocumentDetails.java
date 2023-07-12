@@ -4,4 +4,5 @@ public class DocumentDetails {
 
 	private byte[] pancard;
 	
+	
 }
