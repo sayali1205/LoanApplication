@@ -2,6 +2,7 @@ package com.loan.achintya.data.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.http.HttpStatus;
 
@@ -14,6 +15,7 @@ import com.loan.achintya.data.model.Enquiry;
 import com.loan.achintya.data.service.EnquiryService;
 
 @RestController
+@CrossOrigin("*")
 public class EnquiryController {
 
 	@Autowired
