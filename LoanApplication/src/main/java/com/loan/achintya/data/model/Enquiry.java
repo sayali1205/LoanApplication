@@ -26,5 +26,6 @@ public class Enquiry {
 	private double custLoanAmmount;
 	private int custTennureYear;
 	
-
+// enquiryStatus
+	//cibilScore
 }

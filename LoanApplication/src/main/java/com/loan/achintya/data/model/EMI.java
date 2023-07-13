@@ -10,10 +10,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+
+
 @NoArgsConstructor
 @AllArgsConstructor
 @CrossOrigin("*")
 public class EMI {
+
 	 private double principal;
 	    private double annualInterestRate;
 	    private int tenureInMonths;

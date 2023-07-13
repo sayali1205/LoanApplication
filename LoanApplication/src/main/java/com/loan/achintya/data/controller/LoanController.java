@@ -10,7 +10,8 @@ import com.loan.achintya.data.model.EMI;
 import com.loan.achintya.data.service.LoanService;
 
 @RestController
-public class LoanController {
+public class LoanController 
+{
 
 	@Autowired
 	LoanService ls;
