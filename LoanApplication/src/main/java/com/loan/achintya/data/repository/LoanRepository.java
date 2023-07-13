@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.loan.achintya.data.model.Customer;
 import com.loan.achintya.data.model.EMI;
 @Repository
-public interface LoanRepository extends JpaRepository<EMI, Integer> {
+public interface LoanRepository extends JpaRepository<Customer, Integer> {
 
 }
