@@ -1,8 +1,11 @@
 package com.loan.achintya.data.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.http.HttpStatus;
 
@@ -36,4 +39,11 @@ public class EnquiryController {
 	public ResponseEntity<Enquiry> createEnquiry(@RequestBody Enquiry enquiry) {
 		return new ResponseEntity<Enquiry>(enquiryService.saveEnquiry(enquiry), HttpStatus.OK);
 	}
+	
+	@GetMapping("/")
+	public List<Enquiry> getAllEnquiry() {
+		
+		return enquiryService.getAllEnqury();
+	}
+	
 }

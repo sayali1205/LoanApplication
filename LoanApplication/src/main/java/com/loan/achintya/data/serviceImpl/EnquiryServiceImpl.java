@@ -1,5 +1,7 @@
 package com.loan.achintya.data.serviceImpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 
@@ -26,6 +28,12 @@ public class EnquiryServiceImpl implements EnquiryService {
 	public Enquiry updateEnquiry(Enquiry enquiry) 
 	{
 		return enquiryRepository.save(enquiry);
+	}
+
+	@Override
+	public List<Enquiry> getAllEnqury() {
+		
+		return enquiryRepository.findAll();
 	}
 
 	
