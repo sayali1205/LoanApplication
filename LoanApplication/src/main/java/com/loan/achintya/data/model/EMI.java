@@ -11,17 +11,15 @@ import lombok.NoArgsConstructor;
 
 @Data
 
+
 @NoArgsConstructor
 @AllArgsConstructor
 @CrossOrigin("*")
 public class EMI {
-<<<<<<< HEAD
+
 	
 	
-=======
 
-
->>>>>>> branch 'main' of https://github.com/sayali1205/LoanApplication.git
 	 private double principal;
 	    private double annualInterestRate;
 	    private int tenureInMonths;
