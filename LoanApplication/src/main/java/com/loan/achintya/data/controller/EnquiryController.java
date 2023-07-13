@@ -40,7 +40,7 @@ public class EnquiryController {
 		return new ResponseEntity<Enquiry>(enquiryService.saveEnquiry(enquiry), HttpStatus.OK);
 	}
 	
-	@GetMapping("/getAllEnqury")
+	@GetMapping("/getAllEnquiry")
 	public List<Enquiry> getAllEnquiry() {
 		
 		return enquiryService.getAllEnqury();
