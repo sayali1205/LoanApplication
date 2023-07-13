@@ -11,8 +11,8 @@ public class LoanServiceimpl implements LoanService {
 	@Override
 	public double emiCalculate(EMI emi) {
 		double monthlyInterestRate=emi.getAnnualInterestRate()/12/100;
-		  double numerator =( emi.getPrincipal() * monthlyInterestRate) * Math.pow(1 + monthlyInterestRate, emi.getTenureInMonths());
-	        double denominator = Math.pow(1 + monthlyInterestRate, emi.getTenureInMonths() - 1);
+		  double numerator = emi.getPrincipal() *( monthlyInterestRate) * Math.pow(1 + monthlyInterestRate, emi.getTenureInMonths());
+	        double denominator = Math.pow(1 + monthlyInterestRate, emi.getTenureInMonths()) - 1;
 		
 		
 	       double monthlyEMI=numerator / denominator;
