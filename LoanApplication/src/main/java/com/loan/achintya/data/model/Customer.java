@@ -5,7 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.Cascade;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,10 +32,13 @@ public class Customer {
     @OneToOne(cascade = CascadeType.ALL)
     private DocumentDetails docData;
     
+    @OneToOne(cascade  = CascadeType.ALL)
+    private LoanDetails loanDetails;
+    
     @OneToOne(cascade = CascadeType.ALL)
       private Address address; 
     
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     private Transaction transaction;
     
     @OneToOne(cascade = CascadeType.ALL)

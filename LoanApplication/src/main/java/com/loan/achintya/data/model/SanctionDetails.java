@@ -20,8 +20,9 @@ public class SanctionDetails {
 	private String loanType;
 	private double loanAmountSanctioned;
 	private int tenureInYearSanctioned;
-    private String fromEmail;
+    private double monthlyEmi;
     private String custEmailId;
+    private String disbursementStatus;
 	@Lob
 	private byte[] sanctionPdf;
 }

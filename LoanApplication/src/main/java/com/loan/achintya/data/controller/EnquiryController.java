@@ -34,6 +34,9 @@ public class EnquiryController {
 		return new ResponseEntity<Enquiry>(enquiryService.updateEnquiry(enquiry), HttpStatus.OK);
 
 	}
+	
+	//check cibil API
+	//Email send to Customer
 
 	@PostMapping("/saveEnquiry")
 	public ResponseEntity<Enquiry> createEnquiry(@RequestBody Enquiry enquiry) {

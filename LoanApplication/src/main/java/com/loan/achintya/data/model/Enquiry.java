@@ -25,6 +25,7 @@ public class Enquiry {
 	private String custLoanType;
 	private double custLoanAmmount;
 	private int custTennureYear;
+	//add EnquiryStatus ,cibilScore
 	
 
 }

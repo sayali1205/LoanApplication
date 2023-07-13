@@ -24,7 +24,7 @@ public class Transaction {
 	private String transType;
 	@CreationTimestamp
 	private Date transDate;
-	private double transAmmoount;
+	private double transAmount;
 	private double remainingBalance;
 	
 
