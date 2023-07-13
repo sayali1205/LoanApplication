@@ -27,5 +27,6 @@ public class Enquiry {
 	private int custTennureYear;
 	//add EnquiryStatus ,cibilScore
 	
-
+// enquiryStatus
+	//cibilScore
 }
