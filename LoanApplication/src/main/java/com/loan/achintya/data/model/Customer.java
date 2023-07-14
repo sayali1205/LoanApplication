@@ -27,7 +27,7 @@ public class Customer {
     private String custGender;
     private long custContactNo;
     private String custEmailId;
-    private String custProfeshion;
+    private String custProfession;
     
     @OneToOne(cascade = CascadeType.ALL)
     private DocumentDetails docData;
