@@ -1,6 +1,7 @@
 package com.loan.achintya.data.controller;
 
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -36,11 +37,24 @@ public class EnquiryController {
 	}
 	
 	//check cibil API
+	
+	
+	
+	
 	//Email send to Customer
 
 	@PostMapping("/saveEnquiry")
 	public ResponseEntity<Enquiry> createEnquiry(@RequestBody Enquiry enquiry) {
-		return new ResponseEntity<Enquiry>(enquiryService.saveEnquiry(enquiry), HttpStatus.OK);
+		
+		Random rm=new Random();
+		
+		int minScore=300;
+		int MaxScore=900;
+		
+		int cibilScore=rm.nextInt(MaxScore-minScore+1)+minScore;
+		enquiry.setCibilScore(cibilScore);
+		Enquiry enq=enquiryService.saveEnquiry(enquiry);
+		return new ResponseEntity<Enquiry>(enq, HttpStatus.CREATED);
 	}
 	
 	@GetMapping("/getAllEnquiry")

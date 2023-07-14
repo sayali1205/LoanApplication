@@ -21,6 +21,15 @@ public class EnquiryServiceImpl implements EnquiryService {
 	@Override
 	public Enquiry saveEnquiry(Enquiry enquiry) {
 	
+		if(enquiry.getCibilScore() >= 750)
+		{
+			enquiry.setEnquiryStatus("CibilScore_OK");
+			
+		}
+		else
+		{
+			enquiry.setEnquiryStatus("CIBIL_REJECT");
+		}
 		return enquiryRepository.save(enquiry);
 	}
 
