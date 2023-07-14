@@ -8,4 +8,6 @@ public interface UserService {
 
 	public User getByUnameAndPass(String uname, String pass);
 
+	public User generateUnameAndPass(User user, String fromEmail);
+
 }
