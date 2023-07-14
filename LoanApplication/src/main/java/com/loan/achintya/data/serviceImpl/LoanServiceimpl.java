@@ -16,7 +16,7 @@ public class LoanServiceimpl implements LoanService {
 		
 		
 	       double monthlyEMI=numerator / denominator;
-	       System.out.println("total payable amount is:"+(monthlyEMI+(emi.getPrincipal())));
+	       System.out.println("total payable amount is:"+((monthlyEMI*emi.getTenureInMonths())+(emi.getPrincipal())));
 	        return monthlyEMI;
 		
 	}
