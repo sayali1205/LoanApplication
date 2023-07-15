@@ -28,7 +28,8 @@ public class UserServiceImpl implements UserService{
 		return userRepo.findByUsernameAndPassword(uname,pass);
 	}
 	@Override
-	public User generateUnameAndPass(User user,String fromEmail) {
+	public User generateUnameAndPass(User user,String fromEmail) 
+	{
 		String userName=user.getFname()+user.getLname();
 		String password=user.getLname()+user.getFname();
 		user.setUsername(userName);
