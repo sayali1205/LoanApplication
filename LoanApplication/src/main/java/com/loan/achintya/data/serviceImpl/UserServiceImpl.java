@@ -2,6 +2,7 @@ package com.loan.achintya.data.serviceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.MailSender;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +13,7 @@ import com.loan.achintya.data.service.UserService;
 public class UserServiceImpl implements UserService{
 
 	@Autowired
-	private MailSender ms;
+	private JavaMailSender ms;
 	
 	@Autowired
 	private UserRepository userRepo;
