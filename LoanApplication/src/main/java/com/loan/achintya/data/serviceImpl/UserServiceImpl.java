@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService{
 		String password=user.getLname()+user.getFname();
 		user.setUsername(userName);
 		user.setPassword(password);
-		String text="Username="+user.getUsername()+"\n.....Password="+user.getPassword();
+		String text="Username="+user.getUsername()+"\nPassword="+user.getPassword();
 		SimpleMailMessage message=new SimpleMailMessage();
 		message.setTo(user.getToEmail());
 		message.setFrom(fromEmail);

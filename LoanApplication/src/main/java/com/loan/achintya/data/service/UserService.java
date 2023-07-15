@@ -1,5 +1,6 @@
 package com.loan.achintya.data.service;
 
+
 import com.loan.achintya.data.model.User;
 
 public interface UserService {
