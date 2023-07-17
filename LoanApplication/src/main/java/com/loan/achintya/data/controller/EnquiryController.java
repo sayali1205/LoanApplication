@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +25,9 @@ public class EnquiryController {
 
 	@Autowired
 	EnquiryService enquiryService;
+	
+	@Value("${spring.mail.username}")
+	String fromEmail;
 
 	@PutMapping("/updateEnquiry/{custId}")
 
@@ -31,6 +35,14 @@ public class EnquiryController {
 
 	{
 		enquiry.setCustId(custId);
+        Random rm=new Random();
+		
+		int minScore=300;
+		int MaxScore=900;
+		
+		int cibilScore=rm.nextInt(MaxScore-minScore+1)+minScore;
+		enquiry.setCibilScore(cibilScore);
+		Enquiry enq=enquiryService.RequestCibil(enquiry);
 
 		return new ResponseEntity<Enquiry>(enquiryService.updateEnquiry(enquiry), HttpStatus.OK);
 
@@ -65,6 +77,29 @@ public class EnquiryController {
 		enquiryService.sendRejectMail(e,fromEmail);
 		return "Reject Mail Send";
 	}
+	
+	@PostMapping("/sendSuccessMail")
+	public String sendMail(@RequestBody Enquiry e,String fromEmail) {
+		
+		enquiryService.sendMail(e,fromEmail);
+		return "success mail send";
+	}
+	
+	@PostMapping("/checkCibil")
+	public ResponseEntity<Enquiry> checkCibil(@RequestBody Enquiry enquiry) {
+		
+		Random rm=new Random();
+		
+		int minScore=300;
+		int MaxScore=900;
+		
+		int cibilScore=rm.nextInt(MaxScore-minScore+1)+minScore;
+		enquiry.setCibilScore(cibilScore);
+		Enquiry enq=enquiryService.RequestCibil(enquiry);
+		return new ResponseEntity<Enquiry>(enq, HttpStatus.CREATED);
+	}
+	
+	
 	
 	
 }

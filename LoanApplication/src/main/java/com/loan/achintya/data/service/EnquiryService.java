@@ -15,5 +15,9 @@ public interface EnquiryService {
 
 	public void sendRejectMail(Enquiry e, String fromEmail);
 
+	public Enquiry RequestCibil(Enquiry enquiry);
+
+	public void sendMail(Enquiry e, String fromEmail);
+
 
 }
