@@ -27,7 +27,6 @@ public class Enquiry {
 	private int custTennureYear;
 	private String enquiryStatus;
 	private int cibilScore;
-	
 	//add EnquiryStatus ,cibilScore
 	
 // enquiryStatus

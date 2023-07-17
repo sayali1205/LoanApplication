@@ -1,5 +1,7 @@
 package com.loan.achintya.data.serviceImpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,13 @@ public class CustomerServiceImpl implements CustomerService{
 	public Customer saveCustomer(Customer cust) {
 		
 		return cr.save(cust);
+	}
+
+	@Override
+	public List<Customer> getAllCustomer() {
+		
+		return cr.findAll();
+		
 	}
 
 }

@@ -5,6 +5,8 @@ import com.loan.achintya.data.model.EMI;
 public interface LoanService {
 
 	
-	public double emiCalculate(EMI emi);
+	public EMI emiCalculate(EMI emi);
+
+	
 
 }

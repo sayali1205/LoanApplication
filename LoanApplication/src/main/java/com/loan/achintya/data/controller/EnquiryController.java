@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,32 +20,29 @@ import com.loan.achintya.data.model.Enquiry;
 import com.loan.achintya.data.service.EnquiryService;
 
 @RestController
-@CrossOrigin("*")
+@CrossOrigin(origins="*")
 public class EnquiryController {
 
+	
 	@Autowired
 	EnquiryService enquiryService;
-
-	@PutMapping("/updateEnquiry/{custId}")
-
-	public ResponseEntity<Enquiry> updateEnquiry(@PathVariable("custId") int custId, @RequestBody Enquiry enquiry)
-
-	{
-		enquiry.setCustId(custId);
-
-		return new ResponseEntity<Enquiry>(enquiryService.updateEnquiry(enquiry), HttpStatus.OK);
-
-	}
 	
-	//check cibil API
+	@Value("${spring.mail.username}")
+	String fromEmail;
 	
-	
-	
-	
-	//Email send to Customer
-
 	@PostMapping("/saveEnquiry")
 	public ResponseEntity<Enquiry> createEnquiry(@RequestBody Enquiry enquiry) {
+		
+		enquiry.setCibilScore(0);
+		Enquiry enq=enquiryService.RequestCibil(enquiry);
+
+		return new ResponseEntity<Enquiry>(enq, HttpStatus.CREATED);
+
+		
+	}
+	
+	@PostMapping("/checkCibil")
+	public ResponseEntity<Enquiry> checkCibil(@RequestBody Enquiry enquiry) {
 		
 		Random rm=new Random();
 		
@@ -53,8 +51,27 @@ public class EnquiryController {
 		
 		int cibilScore=rm.nextInt(MaxScore-minScore+1)+minScore;
 		enquiry.setCibilScore(cibilScore);
-		Enquiry enq=enquiryService.saveEnquiry(enquiry);
+		Enquiry enq=enquiryService.RequestCibil(enquiry);
 		return new ResponseEntity<Enquiry>(enq, HttpStatus.CREATED);
+	}
+
+	@PutMapping("/updateEnquiry/{custId}")
+
+	public ResponseEntity<Enquiry> updateEnquiry(@PathVariable("custId") int custId, @RequestBody Enquiry enquiry)
+
+	{
+		enquiry.setCustId(custId);
+       Random rm=new Random();
+		
+		int minScore=300;
+		int MaxScore=900;
+		
+		int cibilScore=rm.nextInt(MaxScore-minScore+1)+minScore;
+		enquiry.setCibilScore(cibilScore);
+		Enquiry enq=enquiryService.RequestCibil(enquiry);
+
+		return new ResponseEntity<Enquiry>(enquiryService.updateEnquiry(enquiry), HttpStatus.OK);
+
 	}
 	
 	@GetMapping("/getAllEnquiry")
@@ -62,5 +79,22 @@ public class EnquiryController {
 		
 		return enquiryService.getAllEnqury();
 	}
+	
+	@PostMapping("/sendSuccessMail")
+	public String sendMail(@RequestBody Enquiry e,String fromEmail) {
+		
+		enquiryService.sendMail(e,fromEmail);
+		return "success mail send";
+	}
+	
+	@PostMapping("/sendRejectMail")
+public String sendRejectMail(@RequestBody Enquiry e,String fromEmail) {
+		
+		enquiryService.sendRejectMail(e,fromEmail);
+		return "reject mail send";
+	}
+	
+
+	
 	
 }

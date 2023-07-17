@@ -13,6 +13,7 @@ public class UserServiceImpl implements UserService{
 
 	@Autowired
 	UserRepository userRepo;
+	
 	@Autowired
 	MailSender ms;
 	@Override
