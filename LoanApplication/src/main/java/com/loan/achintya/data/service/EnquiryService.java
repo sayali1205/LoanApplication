@@ -13,5 +13,7 @@ public interface EnquiryService {
 
 	public List<Enquiry> getAllEnqury();
 
+	public void sendRejectMail(Enquiry e, String fromEmail);
+
 
 }

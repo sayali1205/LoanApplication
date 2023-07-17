@@ -63,4 +63,11 @@ public class EnquiryController {
 		return enquiryService.getAllEnqury();
 	}
 	
+	@PostMapping("/sendRejectMail")
+	public String sendRejectMail(@RequestBody Enquiry e, String fromEmail)
+	{
+		enquiryService.sendRejectMail(e,fromEmail);
+		return "Reject Mail Send";
+	}
+	
 }
