@@ -36,10 +36,6 @@ public class EnquiryController {
 
 	}
 	
-	//check cibil API
-	
-	
-	
 	
 	//Email send to Customer
 
