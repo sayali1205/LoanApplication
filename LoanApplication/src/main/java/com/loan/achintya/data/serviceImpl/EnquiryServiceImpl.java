@@ -46,7 +46,7 @@ public class EnquiryServiceImpl implements EnquiryService {
 		
 		return enquiryRepository.findAll();
 	}
-
+//api for mail
 	@Override
 	public void sendRejectMail(Enquiry e, String fromEmail) {
 		SimpleMailMessage msg=new SimpleMailMessage();
