@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +25,8 @@ public class EnquiryController {
 
 	@Autowired
 	EnquiryService enquiryService;
+	@Value("${spring.mail.username}")
+	String fromEmail;
 
 	@PutMapping("/updateEnquiry/{custId}")
 
@@ -64,6 +67,13 @@ public class EnquiryController {
 	{
 		enquiryService.sendRejectMail(e,fromEmail);
 		return "Reject Mail Send";
+	}
+	
+	@PostMapping("/sendSuccessMail")
+	public String sendMail(@RequestBody Enquiry e,String fromEmail) {
+		
+		enquiryService.sendMail(e,fromEmail);
+		return "success mail send";
 	}
 	
 	

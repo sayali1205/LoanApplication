@@ -56,6 +56,18 @@ public class EnquiryServiceImpl implements EnquiryService {
 		ms.send(msg);
 		
 	}
+	@Override
+	public void sendMail(Enquiry e, String fromEmail) {
+		
+		
+		SimpleMailMessage msg=new SimpleMailMessage();
+		msg.setTo(e.getCustEmailId());
+		msg.setFrom(fromEmail);
+		msg.setSubject("Loan Apply Success");
+		msg.setText("Your loan application successfully passed");
+		ms.send(msg);
+		
+			}
 
 	
 	
