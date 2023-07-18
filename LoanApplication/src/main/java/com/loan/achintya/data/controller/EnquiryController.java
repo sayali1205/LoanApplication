@@ -26,8 +26,7 @@ public class EnquiryController {
 	
 	@Autowired
 	EnquiryService enquiryService;
-<<<<<<< HEAD
-=======
+
 	
 	@Value("${spring.mail.username}")
 	String fromEmail;
@@ -50,17 +49,13 @@ public class EnquiryController {
 		return new ResponseEntity<Enquiry>(enquiryService.updateEnquiry(enquiry), HttpStatus.OK);
 
 	}
->>>>>>> branch 'main' of https://github.com/sayali1205/LoanApplication.git
-	
-<<<<<<< HEAD
+
 	@Value("${spring.mail.username}")
 	String fromEmail;
 	
-=======
-	
-	//Email send to Customer
 
->>>>>>> branch 'main' of https://github.com/sayali1205/LoanApplication.git
+
+
 	@PostMapping("/saveEnquiry")
 	public ResponseEntity<Enquiry> createEnquiry(@RequestBody Enquiry enquiry) {
 		
@@ -111,7 +106,7 @@ public class EnquiryController {
 		return enquiryService.getAllEnqury();
 	}
 	
-<<<<<<< HEAD
+
 	@PostMapping("/sendSuccessMail")
 	public String sendMail(@RequestBody Enquiry e,String fromEmail) {
 		
@@ -127,7 +122,7 @@ public String sendRejectMail(@RequestBody Enquiry e,String fromEmail) {
 	}
 	
 
-=======
+
 	@PostMapping("/sendRejectMail")
 	public String sendRejectMail(@RequestBody Enquiry e, String fromEmail)
 	{
@@ -157,7 +152,7 @@ public String sendRejectMail(@RequestBody Enquiry e,String fromEmail) {
 	}
 	
 	
->>>>>>> branch 'main' of https://github.com/sayali1205/LoanApplication.git
+
 	
 	
 }
