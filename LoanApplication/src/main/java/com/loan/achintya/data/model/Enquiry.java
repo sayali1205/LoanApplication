@@ -29,9 +29,10 @@ public class Enquiry {
 <<<<<<< HEAD
 =======
 	private String enquiryStatus;
+<<<<<<< HEAD
 >>>>>>> branch 'main' of https://github.com/sayali1205/LoanApplication.git
 	//add EnquiryStatus ,cibilScore
+=======
+>>>>>>> branch 'main' of https://github.com/sayali1205/LoanApplication.git
 	
-// enquiryStatus
-	//cibilScore
 }

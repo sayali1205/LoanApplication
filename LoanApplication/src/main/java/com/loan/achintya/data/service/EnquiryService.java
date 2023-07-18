@@ -25,5 +25,7 @@ public interface EnquiryService {
 	public void sendMail(Enquiry e, String fromEmail);
 
 
+	public void sendMail(Enquiry e, String fromEmail);
+
 
 }
