@@ -3,10 +3,7 @@ package com.loan.achintya.data.serviceImpl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-<<<<<<< HEAD
 import org.springframework.mail.MailSender;
-=======
->>>>>>> branch 'main' of https://github.com/sayali1205/LoanApplication.git
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
@@ -23,14 +20,10 @@ public class EnquiryServiceImpl implements EnquiryService {
 
 	@Autowired
 	JavaMailSender ms;
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'main' of https://github.com/sayali1205/LoanApplication.git
 
 	@Override
-<<<<<<< HEAD
-=======
+
 	public Enquiry saveEnquiry(Enquiry enquiry) {
 	
 		if(enquiry.getCibilScore()==0) {
@@ -40,7 +33,6 @@ public class EnquiryServiceImpl implements EnquiryService {
 	}
 
 	@Override
->>>>>>> branch 'main' of https://github.com/sayali1205/LoanApplication.git
 	public Enquiry updateEnquiry(Enquiry enquiry) 
 	{
 		if(enquiry.getCibilScore() >= 750)
@@ -73,16 +65,7 @@ public class EnquiryServiceImpl implements EnquiryService {
 		ms.send(msg);
 	}
 	
-	@Override
-	public void sendRejectMail(Enquiry e, String fromEmail) {
-		SimpleMailMessage msg=new SimpleMailMessage();
-		msg.setTo(fromEmail);
-		msg.setSubject("Loan Apply Rejected");
-		msg.setText("Your Loan Application is rejected");
-		ms.send(msg);
-		
-	}
-<<<<<<< HEAD
+	
 	
 	@Override
 	public Enquiry RequestCibil(Enquiry enquiry) {
@@ -101,45 +84,9 @@ public class EnquiryServiceImpl implements EnquiryService {
 		return enquiryRepository.save(enquiry);
 	}
 
-	@Override
-	public Enquiry saveEnquiry(Enquiry enquiry) {
+
+
 	
-		if(enquiry.getCibilScore()==0) {
-			enquiry.setEnquiryStatus("Just_Created");
-		}
-		
-		return enquiryRepository.save(enquiry);
-	}
-
-	@Override
-	public Enquiry RequestCibil(Enquiry enquiry) {
-		if(enquiry.getCibilScore() >= 750)
-		{
-			enquiry.setEnquiryStatus("CibilScore_OK");
-			
-		}
-		else if(enquiry.getCibilScore()==0) {
-			enquiry.setEnquiryStatus("Just_Created");
-		}
-		else
-		{
-			enquiry.setEnquiryStatus("CIBIL_REJECT");
-		}
-		return enquiryRepository.save(enquiry);
-	}
-
-	@Override
-	public void sendMail(Enquiry e, String fromEmail) {
-		
-		
-		SimpleMailMessage msg=new SimpleMailMessage();
-		msg.setTo(e.getCustEmailId());
-		msg.setFrom(fromEmail);
-		msg.setSubject("Loan Apply Success");
-		msg.setText("Your loan application successfully passed");
-		ms.send(msg);
-		
-			}
 
 	@Override
 	public void sendRejectMail(Enquiry e, String fromEmail) {
@@ -151,22 +98,9 @@ public class EnquiryServiceImpl implements EnquiryService {
 		ms.send(msg);
 		
 	}
-	}
 	
-=======
-	@Override
-	public void sendMail(Enquiry e, String fromEmail) {
-		
-		
-		SimpleMailMessage msg=new SimpleMailMessage();
-		msg.setTo(e.getCustEmailId());
-		msg.setFrom(fromEmail);
-		msg.setSubject("Loan Apply Success");
-		msg.setText("Your loan application successfully passed");
-		ms.send(msg);
-		
-			}
->>>>>>> branch 'main' of https://github.com/sayali1205/LoanApplication.git
+	
+}
 
 	
 

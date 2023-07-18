@@ -13,11 +13,8 @@ import com.loan.achintya.data.service.UserService;
 public class UserServiceImpl implements UserService{
 
 	@Autowired
-<<<<<<< HEAD
-	UserRepository userRepo;
-=======
+//	UserRepository userRepo;
 	private JavaMailSender ms;
->>>>>>> branch 'main' of https://github.com/sayali1205/LoanApplication.git
 	
 	@Autowired
 	private UserRepository userRepo;

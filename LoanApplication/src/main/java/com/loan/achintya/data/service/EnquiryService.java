@@ -18,14 +18,8 @@ public interface EnquiryService {
 	public void sendMail(Enquiry e, String fromEmail);
 
 	public void sendRejectMail(Enquiry e, String fromEmail);
-	public void sendRejectMail(Enquiry e, String fromEmail);
-
-	public Enquiry RequestCibil(Enquiry enquiry);
-
-	public void sendMail(Enquiry e, String fromEmail);
 
 
-	public void sendMail(Enquiry e, String fromEmail);
 
 
 }

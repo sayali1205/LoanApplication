@@ -29,7 +29,6 @@ public class Customer {
     private String custEmailId;
     private String custProfession;
     
-<<<<<<< HEAD
     @OneToOne(cascade = CascadeType.ALL)
     private DocumentDetails docData;
     
@@ -47,7 +46,6 @@ public class Customer {
     
     @OneToOne(cascade = CascadeType.ALL)
     private SanctionDetails sactiondetails;
-=======
 //   @OneToOne(cascade = CascadeType.ALL)
 //   private DocumentDetails docData;
 //    
@@ -65,5 +63,4 @@ public class Customer {
 //    
 //    @OneToOne(cascade = CascadeType.ALL)
 //    private SanctionDetails sactiondetails;
->>>>>>> branch 'main' of https://github.com/sayali1205/LoanApplication.git
 }
