@@ -11,7 +11,11 @@ import com.loan.achintya.data.model.EMI;
 import com.loan.achintya.data.service.LoanService;
 @CrossOrigin(origins="*")
 @RestController
+<<<<<<< HEAD
 
+=======
+@CrossOrigin
+>>>>>>> branch 'main' of https://github.com/sayali1205/LoanApplication.git
 public class LoanController 
 {
 

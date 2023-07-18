@@ -26,6 +26,8 @@ public class EnquiryController {
 	
 	@Autowired
 	EnquiryService enquiryService;
+	@Value("${spring.mail.username}")
+	String fromEmail;
 
 <<<<<<< HEAD
 	
@@ -148,6 +150,7 @@ public String sendRejectMail(@RequestBody Enquiry e,String fromEmail) {
 		return "success mail send";
 	}
 	
+<<<<<<< HEAD
 	@PostMapping("/checkCibil")
 	public ResponseEntity<Enquiry> checkCibil(@RequestBody Enquiry enquiry) {
 		
@@ -165,5 +168,7 @@ public String sendRejectMail(@RequestBody Enquiry e,String fromEmail) {
 	
 
 	
+=======
+>>>>>>> branch 'main' of https://github.com/sayali1205/LoanApplication.git
 	
 }
