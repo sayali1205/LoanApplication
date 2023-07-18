@@ -27,7 +27,10 @@ public class EnquiryController {
 	@Autowired
 	EnquiryService enquiryService;
 
+<<<<<<< HEAD
 	
+=======
+>>>>>>> branch 'main' of https://github.com/sayali1205/LoanApplication.git
 	@Value("${spring.mail.username}")
 	String fromEmail;
 
@@ -54,6 +57,11 @@ public class EnquiryController {
 	String fromEmail;
 	
 
+<<<<<<< HEAD
+=======
+	
+	
+>>>>>>> branch 'main' of https://github.com/sayali1205/LoanApplication.git
 
 
 	@PostMapping("/saveEnquiry")
@@ -121,8 +129,11 @@ public String sendRejectMail(@RequestBody Enquiry e,String fromEmail) {
 		return "reject mail send";
 	}
 	
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> branch 'main' of https://github.com/sayali1205/LoanApplication.git
 	@PostMapping("/sendRejectMail")
 	public String sendRejectMail(@RequestBody Enquiry e, String fromEmail)
 	{
