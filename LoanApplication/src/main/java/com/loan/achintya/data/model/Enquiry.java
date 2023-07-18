@@ -25,8 +25,11 @@ public class Enquiry {
 	private String custLoanType;
 	private double custLoanAmmount;
 	private int custTennureYear;
-	private String enquiryStatus;
 	private int cibilScore;
+<<<<<<< HEAD
+=======
+	private String enquiryStatus;
+>>>>>>> branch 'main' of https://github.com/sayali1205/LoanApplication.git
 	//add EnquiryStatus ,cibilScore
 	
 // enquiryStatus

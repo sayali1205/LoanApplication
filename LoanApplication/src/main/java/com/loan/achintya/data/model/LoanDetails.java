@@ -10,8 +10,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class LoanDetails {
+<<<<<<< HEAD
 
 	@Id
+=======
+>>>>>>> branch 'main' of https://github.com/sayali1205/LoanApplication.git
 	private String loanStatus;
 	private double requiredLoanamount;
 }

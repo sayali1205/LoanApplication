@@ -19,5 +19,4 @@ public class LoanAmountCalculator {
 	private int loanTenture;
 	private double feesAndCharges;
 	
-	
 }

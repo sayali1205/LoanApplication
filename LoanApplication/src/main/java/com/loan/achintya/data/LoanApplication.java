@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class LoanApplication {
 
 	public static void main(String[] args) {
+		
 		SpringApplication.run(LoanApplication.class, args);
+		System.out.println("delt kar statement ");
 		System.out.println("Run Successfully");
 	}
 

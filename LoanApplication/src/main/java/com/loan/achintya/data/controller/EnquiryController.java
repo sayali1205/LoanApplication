@@ -26,10 +26,41 @@ public class EnquiryController {
 	
 	@Autowired
 	EnquiryService enquiryService;
+<<<<<<< HEAD
+=======
 	
 	@Value("${spring.mail.username}")
 	String fromEmail;
+
+	@PutMapping("/updateEnquiry/{custId}")
+
+	public ResponseEntity<Enquiry> updateEnquiry(@PathVariable("custId") int custId, @RequestBody Enquiry enquiry)
+
+	{
+		enquiry.setCustId(custId);
+        Random rm=new Random();
+		
+		int minScore=300;
+		int MaxScore=900;
+		
+		int cibilScore=rm.nextInt(MaxScore-minScore+1)+minScore;
+		enquiry.setCibilScore(cibilScore);
+		Enquiry enq=enquiryService.RequestCibil(enquiry);
+
+		return new ResponseEntity<Enquiry>(enquiryService.updateEnquiry(enquiry), HttpStatus.OK);
+
+	}
+>>>>>>> branch 'main' of https://github.com/sayali1205/LoanApplication.git
 	
+<<<<<<< HEAD
+	@Value("${spring.mail.username}")
+	String fromEmail;
+	
+=======
+	
+	//Email send to Customer
+
+>>>>>>> branch 'main' of https://github.com/sayali1205/LoanApplication.git
 	@PostMapping("/saveEnquiry")
 	public ResponseEntity<Enquiry> createEnquiry(@RequestBody Enquiry enquiry) {
 		
@@ -80,6 +111,7 @@ public class EnquiryController {
 		return enquiryService.getAllEnqury();
 	}
 	
+<<<<<<< HEAD
 	@PostMapping("/sendSuccessMail")
 	public String sendMail(@RequestBody Enquiry e,String fromEmail) {
 		
@@ -95,6 +127,37 @@ public String sendRejectMail(@RequestBody Enquiry e,String fromEmail) {
 	}
 	
 
+=======
+	@PostMapping("/sendRejectMail")
+	public String sendRejectMail(@RequestBody Enquiry e, String fromEmail)
+	{
+		enquiryService.sendRejectMail(e,fromEmail);
+		return "Reject Mail Send";
+	}
+	
+	@PostMapping("/sendSuccessMail")
+	public String sendMail(@RequestBody Enquiry e,String fromEmail) {
+		
+		enquiryService.sendMail(e,fromEmail);
+		return "success mail send";
+	}
+	
+	@PostMapping("/checkCibil")
+	public ResponseEntity<Enquiry> checkCibil(@RequestBody Enquiry enquiry) {
+		
+		Random rm=new Random();
+		
+		int minScore=300;
+		int MaxScore=900;
+		
+		int cibilScore=rm.nextInt(MaxScore-minScore+1)+minScore;
+		enquiry.setCibilScore(cibilScore);
+		Enquiry enq=enquiryService.RequestCibil(enquiry);
+		return new ResponseEntity<Enquiry>(enq, HttpStatus.CREATED);
+	}
+	
+	
+>>>>>>> branch 'main' of https://github.com/sayali1205/LoanApplication.git
 	
 	
 }

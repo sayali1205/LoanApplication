@@ -1,8 +1,9 @@
 package com.loan.achintya.data.serviceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.MailSender;
 import org.springframework.stereotype.Service;
 
 import com.loan.achintya.data.model.User;
@@ -12,11 +13,16 @@ import com.loan.achintya.data.service.UserService;
 public class UserServiceImpl implements UserService{
 
 	@Autowired
+<<<<<<< HEAD
 	UserRepository userRepo;
+=======
+	private JavaMailSender ms;
+>>>>>>> branch 'main' of https://github.com/sayali1205/LoanApplication.git
 	
 	@Autowired
-	MailSender ms;
-	@Override
+	private UserRepository userRepo;
+	
+ 	@Override
 	public User saveUser(User user) {
 		
 		return userRepo.save(user);
@@ -27,12 +33,13 @@ public class UserServiceImpl implements UserService{
 		return userRepo.findByUsernameAndPassword(uname,pass);
 	}
 	@Override
-	public User generateUnameAndPass(User user,String fromEmail) {
+	public User generateUnameAndPass(User user,String fromEmail) 
+	{
 		String userName=user.getFname()+user.getLname();
 		String password=user.getLname()+user.getFname();
 		user.setUsername(userName);
 		user.setPassword(password);
-		String text="Username="+user.getUsername()+"\n.....Password="+user.getPassword();
+		String text="Username="+user.getUsername()+"\nPassword="+user.getPassword();
 		SimpleMailMessage message=new SimpleMailMessage();
 		message.setTo(user.getToEmail());
 		message.setFrom(fromEmail);
