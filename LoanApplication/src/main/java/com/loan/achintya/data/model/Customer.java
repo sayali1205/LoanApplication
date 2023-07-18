@@ -29,21 +29,21 @@ public class Customer {
     private String custEmailId;
     private String custProfession;
     
-//    @OneToOne(cascade = CascadeType.ALL)
-//    private DocumentDetails docData;
-//    
-//    @OneToOne(cascade  = CascadeType.ALL)
-//    private LoanDetails loanDetails;
-//    
-//    @OneToOne(cascade = CascadeType.ALL)
-//      private Address address; 
-//    
-//    @OneToMany(cascade = CascadeType.ALL,targetEntity = Transaction.class)
-//    private Transaction transaction;
-//    
-//    @OneToOne(cascade = CascadeType.ALL)
-//    private BankDetails bankDetails;
-//    
-//    @OneToOne(cascade = CascadeType.ALL)
-//    private SanctionDetails sactiondetails;
+    @OneToOne(cascade = CascadeType.ALL)
+    private DocumentDetails docData;
+    
+    @OneToOne(cascade  = CascadeType.ALL)
+    private LoanDetails loanDetails;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+      private Address address; 
+    
+    //@OneToMany(cascade = CascadeType.ALL)
+   // private Transaction transaction;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    private BankDetails bankDetails;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    private SanctionDetails sactiondetails;
 }
