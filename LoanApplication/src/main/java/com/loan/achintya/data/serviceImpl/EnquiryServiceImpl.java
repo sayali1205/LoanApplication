@@ -1,5 +1,7 @@
 package com.loan.achintya.data.serviceImpl;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,16 +25,6 @@ public class EnquiryServiceImpl implements EnquiryService {
 
 
 	@Override
-
-	public Enquiry saveEnquiry(Enquiry enquiry) {
-	
-		if(enquiry.getCibilScore()==0) {
-			enquiry.setEnquiryStatus("Just_Created");
-		}
-				return enquiryRepository.save(enquiry);
-	}
-
-	@Override
 	public Enquiry updateEnquiry(Enquiry enquiry) 
 	{
 		if(enquiry.getCibilScore() >= 750)
@@ -53,20 +45,17 @@ public class EnquiryServiceImpl implements EnquiryService {
 		
 		return enquiryRepository.findAll();
 	}
-	
+
 	@Override
-	public void sendMail(Enquiry e, String fromEmail) {
+	public Enquiry saveEnquiry(Enquiry enquiry) {
+	
+		if(enquiry.getCibilScore()==0) {
+			enquiry.setEnquiryStatus("Just_Created");
+		}
 		
-		SimpleMailMessage msg=new SimpleMailMessage();
-		msg.setTo(e.getCustEmailId());
-		msg.setFrom(fromEmail);
-		msg.setSubject("Loan Apply Success");
-		msg.setText("Your loan application successfully passed");
-		ms.send(msg);
+		return enquiryRepository.save(enquiry);
 	}
-	
-	
-	
+
 	@Override
 	public Enquiry RequestCibil(Enquiry enquiry) {
 		if(enquiry.getCibilScore() >= 750)
@@ -84,9 +73,18 @@ public class EnquiryServiceImpl implements EnquiryService {
 		return enquiryRepository.save(enquiry);
 	}
 
-
-
-	
+	@Override
+	public void sendMail(Enquiry e, String fromEmail) {
+		
+		
+		SimpleMailMessage msg=new SimpleMailMessage();
+		msg.setTo(e.getCustEmailId());
+		msg.setFrom(fromEmail);
+		msg.setSubject("Loan Apply Success");
+		msg.setText("Your loan application successfully passed");
+		ms.send(msg);
+		
+			}
 
 	@Override
 	public void sendRejectMail(Enquiry e, String fromEmail) {
@@ -98,7 +96,36 @@ public class EnquiryServiceImpl implements EnquiryService {
 		ms.send(msg);
 		
 	}
-	
+
+	@Override
+	public List<Enquiry> getAllJustCreatedEnquiry() {
+		enquiryRepository.findAll();
+		List<Enquiry> l= enquiryRepository.findAll();
+		Iterator<Enquiry> itr=l.iterator();
+		List<Enquiry> list=new ArrayList<>();
+		while(itr.hasNext()) {
+			Enquiry enq=itr.next();
+			
+			if(enq.getEnquiryStatus().equalsIgnoreCase("Just_Created")) { 
+				
+				list.add(enq);
+				
+				}
+		}
+
+		System.out.println(l.size());
+		
+		System.out.println(list.size());
+			
+			return list;
+	}
+
+	@Override
+	public void deleteById(int custId) {
+		enquiryRepository.deleteById(custId);
+		
+		
+	}
 	
 }
 

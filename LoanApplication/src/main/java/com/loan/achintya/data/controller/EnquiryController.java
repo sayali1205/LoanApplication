@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.http.HttpStatus;
@@ -26,30 +27,10 @@ public class EnquiryController {
 	
 	@Autowired
 	EnquiryService enquiryService;
+	
 	@Value("${spring.mail.username}")
 	String fromEmail;
-
-
 	
-
-	@PutMapping("/updateEnquiry/{custId}")
-
-	public ResponseEntity<Enquiry> updateEnquiry(@PathVariable("custId") int custId, @RequestBody Enquiry enquiry)
-
-	{
-		enquiry.setCustId(custId);
-        Random rm=new Random();
-		
-		int minScore=300;
-		int MaxScore=900;
-		
-		int cibilScore=rm.nextInt(MaxScore-minScore+1)+minScore;
-		enquiry.setCibilScore(cibilScore);
-		Enquiry enq=enquiryService.RequestCibil(enquiry);
-
-		return new ResponseEntity<Enquiry>(enquiryService.updateEnquiry(enquiry), HttpStatus.OK);
-
-	}
 	@PostMapping("/saveEnquiry")
 	public ResponseEntity<Enquiry> createEnquiry(@RequestBody Enquiry enquiry) {
 		
@@ -75,6 +56,24 @@ public class EnquiryController {
 		return new ResponseEntity<Enquiry>(enq, HttpStatus.CREATED);
 	}
 
+	@PutMapping("/updateEnquiry/{custId}")
+
+	public ResponseEntity<Enquiry> updateEnquiry(@PathVariable("custId") int custId, @RequestBody Enquiry enquiry)
+
+	{
+		enquiry.setCustId(custId);
+       Random rm=new Random();
+		
+		int minScore=300;
+		int MaxScore=900;
+		
+		int cibilScore=rm.nextInt(MaxScore-minScore+1)+minScore;
+		enquiry.setCibilScore(cibilScore);
+		Enquiry enq=enquiryService.RequestCibil(enquiry);
+
+		return new ResponseEntity<Enquiry>(enquiryService.updateEnquiry(enquiry), HttpStatus.OK);
+
+	}
 	
 	@GetMapping("/getAllEnquiry")
 	public List<Enquiry> getAllEnquiry() {
@@ -82,7 +81,6 @@ public class EnquiryController {
 		return enquiryService.getAllEnqury();
 	}
 	
-
 	@PostMapping("/sendSuccessMail")
 	public String sendMail(@RequestBody Enquiry e,String fromEmail) {
 		
@@ -97,11 +95,16 @@ public String sendRejectMail(@RequestBody Enquiry e,String fromEmail) {
 		return "reject mail send";
 	}
 	
-
+	@GetMapping("/getAllJustCreatedEnquiry")
+	public List<Enquiry> getAllJustCreatedEnquiry() {
+		
+		return enquiryService.getAllJustCreatedEnquiry();
+	}
 	
-	
-	
-
-	
+	@DeleteMapping("/deleteById/{custId}")
+	public void deleteById(@PathVariable int custId) {
+		enquiryService.deleteById(custId);
+		
+	}
 	
 }

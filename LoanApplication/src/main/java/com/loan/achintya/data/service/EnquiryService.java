@@ -19,6 +19,10 @@ public interface EnquiryService {
 
 	public void sendRejectMail(Enquiry e, String fromEmail);
 
+	public List<Enquiry> getAllJustCreatedEnquiry();
+
+	public void deleteById(int custId);
+
 
 
 

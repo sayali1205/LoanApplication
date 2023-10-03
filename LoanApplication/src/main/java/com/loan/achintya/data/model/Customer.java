@@ -30,7 +30,7 @@ public class Customer {
     private String custProfession;
     
     @OneToOne(cascade = CascadeType.ALL)
-    private DocumentDetails docData;
+    private DocumentDetails docData =new DocumentDetails();
     
     @OneToOne(cascade  = CascadeType.ALL)
     private LoanDetails loanDetails;
@@ -38,8 +38,7 @@ public class Customer {
     @OneToOne(cascade = CascadeType.ALL)
       private Address address; 
     
-    //@OneToMany(cascade = CascadeType.ALL)
-    //private Transaction transaction;
+    
     
     @OneToOne(cascade = CascadeType.ALL)
     private BankDetails bankDetails;
